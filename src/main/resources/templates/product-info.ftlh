@@ -7,10 +7,10 @@
 <h1>Product</h1>
 <hr>
 <b>Title product: </b>${product.title}<br>
-<b>Description product: </b>${product.title}<br>
-<b>Price product: </b>${product.title}<br>
-<b>City product: </b>${product.title}<br>
-<b>Author product: </b>${product.title}<br>
+<b>Description product: </b>${product.description}<br>
+<b>Price product: </b>${product.price}<br>
+<b>City product: </b>${product.city}<br>
+<b>Author product: </b>${product.author}<br>
 <hr>
 <form action="/product/delete/${product.id}" method="post">
     <input type="submit" value="Delete product"> <a href="/">Back</a>

@@ -5,10 +5,11 @@
 </head>
 <body>
 <h1>Products</h1>
+<hr>
 <#list products as product>
     <div>
         <p>
-            <b>${product.title}</b> ${product.price} | <a href="product/${product.id}">More details...</a>
+            <b>${product.title}</b> ${product.price} grn. | <a href="product/${product.id}">More details...</a>
         </p>
     </div>
 </#list>
