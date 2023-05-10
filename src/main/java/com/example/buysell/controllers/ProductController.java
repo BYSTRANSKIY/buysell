@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -15,8 +18,10 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/")
-    public String products(Model model) {
-        model.addAttribute("products", productService.getProducts());
+    public String products(@RequestParam(name = "title", required = false) String title, Model model) {
+        List<Product> products = productService.getProducts(title);
+        model.addAttribute("products", products);
+        model.addAttribute("productsSize", products.size());
         return "products";
     }
 
