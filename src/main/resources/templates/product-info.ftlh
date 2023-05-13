@@ -6,6 +6,10 @@
 <body>
 <h1>Product</h1>
 <hr>
+<#list images as img>
+    <img src="/images/${img.id}" height="100px"/>
+</#list>
+<hr>
 <b>Title product: </b>${product.title}<br>
 <b>Description product: </b>${product.description}<br>
 <b>Price product: </b>${product.price}<br>

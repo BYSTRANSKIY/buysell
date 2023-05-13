@@ -23,12 +23,15 @@
 <hr>
 <h2>Adding new product</h2>
 <hr>
-<form action="product/add" method="post">
+<form action="product/add" method="post" enctype="multipart/form-data">
     Title: <input type="text" name="title"><br><br>
     Description: <input type="text" name="description"><br><br>
     Price: <input type="number" name="price"><br><br>
     City: <input type="text" name="city"><br><br>
     Author: <input type="text" name="author"><br><br>
+    1 Photo: <input type="file" name="file1"/><br><br>
+    2 Photo: <input type="file" name="file2"/><br><br>
+    3 Photo: <input type="file" name="file3"/><br><br>
     <input type="submit" value="Add product"/>
 </form>
 </body>
