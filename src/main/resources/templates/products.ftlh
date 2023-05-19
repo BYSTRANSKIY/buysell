@@ -4,12 +4,18 @@
     <title>BUYSELL</title>
 </head>
 <body>
-<h1>BUYSELL | <a href="/login">Log in</a></h1>
-<hr>
-<form action="/logout" method="post">
-    <input type="hidden" name="_csrf" value="${_csrf.token}">
-    Logout: <input type="submit" value="Exit"/>
-</form>
+<h1>BUYSELL</h1>
+<#if user.email??>
+    <hr>
+    Username: <i>${user.name}</i>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
+        Logout: <input type="submit" value="Exit"/>
+    </form>
+<#else>
+    <hr>
+    <a href="/login">Log in</a>
+</#if>
 <hr>
 <h2>Products</h2>
 <hr>
@@ -25,8 +31,10 @@
         </p>
     </div>
     <#else>
-    <p>Product not found</p>
+    <p>Products not found</p>
 </#list>
+
+<#if user.email??>
 <hr>
 <h2>Adding new product</h2>
 <hr>
@@ -35,11 +43,12 @@
     Description: <input type="text" name="description"><br><br>
     Price: <input type="number" name="price"><br><br>
     City: <input type="text" name="city"><br><br>
-    Author: <input type="text" name="author"><br><br>
     1 Photo: <input type="file" name="file1"/><br><br>
     2 Photo: <input type="file" name="file2"/><br><br>
     3 Photo: <input type="file" name="file3"/><br><br>
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
     <input type="submit" value="Add product"/>
 </form>
+</#if>
 </body>
 </html>

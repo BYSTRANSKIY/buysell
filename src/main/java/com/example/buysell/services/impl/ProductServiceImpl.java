@@ -2,14 +2,17 @@ package com.example.buysell.services.impl;
 
 import com.example.buysell.models.Image;
 import com.example.buysell.models.Product;
+import com.example.buysell.models.User;
 import com.example.buysell.repositories.ProductRepository;
 import com.example.buysell.services.ProductService;
+import com.example.buysell.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 @Slf4j
@@ -17,6 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
+    private final UserService userService;
 
     @Override
     public List<Product> getProducts(String title) {
@@ -32,7 +36,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void saveProduct(Product product, MultipartFile file1, MultipartFile file2, MultipartFile file3) throws IOException {
+    public void saveProduct(Product product, MultipartFile file1, MultipartFile file2, MultipartFile file3, Principal principal) throws IOException {
+        product.setUser(userService.getUserByPrincipal(principal));
         Image image1;
         Image image2;
         Image image3;
@@ -49,7 +54,7 @@ public class ProductServiceImpl implements ProductService {
             image3 = toImageEntity(file3);
             product.addImageToProduct(image3);
         }
-        log.info("Saving new product, Title {}; Author{};", product.getTitle(), product.getAuthor());
+        log.info("Saving new product, Title {}; Author{};", product.getTitle(), product.getUser().getEmail());
         Product productFromDb = productRepository.save(product);
         product.setPreviewImageId(productFromDb.getImages().get(0).getId());
         productRepository.save(product);

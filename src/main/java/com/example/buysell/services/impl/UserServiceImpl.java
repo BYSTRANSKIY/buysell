@@ -9,12 +9,22 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
+    @Override
+    public User getUserByPrincipal(Principal principal) {
+        if (principal == null) {
+            return new User();
+        }
+        return userRepository.findByEmail(principal.getName());
+    }
 
     @Override
     public boolean createUser(User user) {

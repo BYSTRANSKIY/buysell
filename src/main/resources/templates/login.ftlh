@@ -12,6 +12,6 @@
     <input type="hidden" name="_csrf" value="${_csrf.token}">
     <input type="submit" value="Let's go!">
 </form><br>
-<a href="/registration">REGISTRATION</a>
+<a href="/">HOME PAGE</a> | <a href="/registration">REGISTRATION</a>
 </body>
 </html>

@@ -13,11 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
-
     @GetMapping("/registration")
     public String registration() {
         return "registration";
@@ -26,7 +21,7 @@ public class UserController {
     @PostMapping("/registration")
     public String registration(User user, Model model) {
         if (userService.createUser(user)) {
-            return "redirect:/hello";
+            return "redirect:/";
         } else {
             model.addAttribute("errorMessage", "User: " + user.getEmail() + " is already registered");
             return "registration";
