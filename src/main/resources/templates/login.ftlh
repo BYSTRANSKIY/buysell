@@ -4,7 +4,9 @@
     <title>BUYSELL</title>
 </head>
 <body>
-<h1>AUTHORIZING</h1>
+<h1>BUYSELL</h1>
+<hr>
+<h2>AUTHORIZING</h2>
 <hr>
 <form action="/login" method="post">
     Email: <input type="email" name="username"><br><br>
