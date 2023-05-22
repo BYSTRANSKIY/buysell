@@ -2,7 +2,6 @@ package com.example.buysell.services.impl;
 
 import com.example.buysell.models.Image;
 import com.example.buysell.models.Product;
-import com.example.buysell.models.User;
 import com.example.buysell.repositories.ProductRepository;
 import com.example.buysell.services.ProductService;
 import com.example.buysell.services.UserService;

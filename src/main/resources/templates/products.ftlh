@@ -7,11 +7,16 @@
 <h1>BUYSELL</h1>
 <#if user.email??>
     <hr>
-    Username: <i>${user.name}</i>
+    USERNAME: <i>${user.name}</i>
+    <hr>
     <form action="/logout" method="post">
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         Logout: <input type="submit" value="Exit"/>
     </form>
+    <#if user.isAdmin()>
+        <hr>
+        <a href="/admin">Admin panel</a>
+    </#if>
 <#else>
     <hr>
     <a href="/login">Log in</a>

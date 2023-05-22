@@ -18,6 +18,6 @@
 <b>City product: </b>${product.city}<br>
 <b>Author product: </b><a href="/user/${product.user.id}">${product.user.name}</a><br>
 <hr>
-<a href="/">Back</a>
+<a href="/">BACK</a>
 </body>
 </html>

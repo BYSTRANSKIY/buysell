@@ -39,4 +39,8 @@ public class User {
     private void init() {
         dateOfCreated = LocalDateTime.now();
     }
+
+    public boolean isAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
 }

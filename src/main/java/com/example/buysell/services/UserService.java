@@ -1,9 +1,10 @@
 package com.example.buysell.services;
 
 import com.example.buysell.models.User;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.security.Principal;
+import java.util.List;
+import java.util.Map;
 
 public interface UserService {
 
@@ -12,4 +13,7 @@ public interface UserService {
     boolean createUser(User user);
     User findByEmail(String email);
 
+    List<User> getAllUsers();
+
+    void userEdit(User user, Map<String, String> form);
 }

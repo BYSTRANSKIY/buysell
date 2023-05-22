@@ -6,12 +6,12 @@
 <body>
 <h1>BUYSELL</h1>
 <hr>
-<h2>Detailed information about <i>${user.name} :</i></h2>
+<h3>Detailed information about <i>${user.name} :</i></h3>
 <hr>
 <b>Email: </b>${user.email}<br>
 <b>Phone number: </b>${user.phoneNumber}<br>
 <hr>
-<h3>The user put up ${productSize} products for sale:</h3>
+<h4>The user put up ${productSize} products for sale:</h4>
 <hr>
 <#list user.products as product>
     <div>
@@ -20,9 +20,9 @@
         </p>
     </div>
     <#else >
-    <h3>Products not found</h3>
+    <h5>Products not found</h5>
 </#list>
 <hr>
-<a href="/">Back</a>
+<a href="/">BACK</a>
 </body>
 </html>
